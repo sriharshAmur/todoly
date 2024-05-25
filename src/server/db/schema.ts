@@ -3,7 +3,9 @@
 
 import { sql } from "drizzle-orm";
 import {
+  boolean,
   index,
+  pgEnum,
   pgTableCreator,
   serial,
   timestamp,
@@ -18,17 +20,17 @@ import {
  */
 export const createTable = pgTableCreator((name) => `todoly_${name}`);
 
-export const posts = createTable(
-  "post",
-  {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updatedAt", { withTimezone: true }),
-  },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
-);
+export const priorityEnum = pgEnum("priority", ["low", "medium", "high"]);
+
+export const tasks = createTable("task", {
+  id: serial("id").primaryKey(),
+  title: varchar("title", { length: 256 }).notNull(),
+  completed: boolean("completed").default(false),
+  priority: priorityEnum("priority").default(sql`'low'`),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
+  updatedAt: timestamp("updatedAt", { withTimezone: true }).default(
+    sql`CURRENT_TIMESTAMP`,
+  ),
+});
