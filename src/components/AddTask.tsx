@@ -1,30 +1,30 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { db } from "@/server/db";
-import { tasks } from "@/server/db/schema";
-import { revalidatePath } from "next/cache";
+import { addTask } from "@/actions/todoActions";
 
 const AddTask = () => {
-  async function addTask(formData: FormData) {
-    "use server";
+  const [title, setTitle] = useState("");
 
-    const taskData = {
-      title: formData.get("title") as string,
-    };
-
-    // mutate data
-    await db.insert(tasks).values(taskData);
-
-    // revalidate cache
-    revalidatePath("/");
+  async function submitTask(formData: FormData) {
+    await addTask(formData);
+    setTitle("");
   }
+
   return (
     <form
-      action={addTask}
+      action={submitTask}
       className="flex flex-col items-center gap-4 md:flex-row"
     >
-      <Input type="text" name="title" placeholder="Add task" />
+      <Input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        type="text"
+        name="title"
+        placeholder="Add task"
+      />
       <Button type="submit">Add a Task</Button>
     </form>
   );
