@@ -32,51 +32,55 @@ const AddTask = () => {
         name="title"
         placeholder="Add task"
       />
-      <RadioGroup name="priority" className="flex items-center gap-0">
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="low" id="low" className="sr-only" />
-          <Button
-            asChild
-            type="button"
-            size={"sm"}
-            onClick={() => setPriority("low")}
-            variant={priority === "low" ? "secondary" : "outline"}
-          >
-            <Label htmlFor="low" className="border">
-              <Tally1 size={16} />
-            </Label>
-          </Button>
+      <div className="flex w-full items-center justify-between gap-4 md:w-fit md:justify-center">
+        <div>
+          <RadioGroup name="priority" className="flex items-center gap-0">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="low" id="low" className="sr-only" />
+              <Button
+                asChild
+                type="button"
+                size={"sm"}
+                onClick={() => setPriority("low")}
+                variant={priority === "low" ? "secondary" : "outline"}
+              >
+                <Label htmlFor="low" className="border">
+                  <Tally1 size={16} />
+                </Label>
+              </Button>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="medium" id="medium" className="sr-only" />
+              <Button
+                asChild
+                type="button"
+                size={"sm"}
+                onClick={() => setPriority("medium")}
+                variant={priority === "medium" ? "secondary" : "outline"}
+              >
+                <Label htmlFor="medium">
+                  <Tally2 size={16} />
+                </Label>
+              </Button>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="high" id="high" className="sr-only" />
+              <Button
+                asChild
+                type="button"
+                onClick={() => setPriority("high")}
+                size={"sm"}
+                variant={priority === "high" ? "secondary" : "outline"}
+              >
+                <Label htmlFor="high">
+                  <Tally3 size={16} />
+                </Label>
+              </Button>
+            </div>
+          </RadioGroup>
         </div>
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="medium" id="medium" className="sr-only" />
-          <Button
-            asChild
-            type="button"
-            size={"sm"}
-            onClick={() => setPriority("medium")}
-            variant={priority === "medium" ? "secondary" : "outline"}
-          >
-            <Label htmlFor="medium">
-              <Tally2 size={16} />
-            </Label>
-          </Button>
-        </div>
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="high" id="high" className="sr-only" />
-          <Button
-            asChild
-            type="button"
-            onClick={() => setPriority("high")}
-            size={"sm"}
-            variant={priority === "high" ? "secondary" : "outline"}
-          >
-            <Label htmlFor="high">
-              <Tally3 size={16} />
-            </Label>
-          </Button>
-        </div>
-      </RadioGroup>
-      <Button type="submit">Add a Task</Button>
+        <Button type="submit">Add a Task</Button>
+      </div>
     </form>
   );
 };

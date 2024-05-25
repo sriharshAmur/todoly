@@ -1,9 +1,8 @@
 # TODO
 
-- [ ] Add priority to tasks
-- [ ] Display priority in each task
-- [ ] Filter Tasks by Status
+- [x] Add priority to tasks
+- [x] Display priority in each task
+- [ ] Filter Tasks by Status - completed/incompleted
 - [ ] Filter Tasks by Priority
-- [ ] Show only completed/incompleted tasks
 - [ ] Edit Task
 - [ ] Sort Tasks by Priority
