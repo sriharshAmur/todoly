@@ -4,12 +4,11 @@
 import { sql } from "drizzle-orm";
 import {
   boolean,
-  index,
   pgEnum,
   pgTableCreator,
   serial,
+  text,
   timestamp,
-  varchar,
 } from "drizzle-orm/pg-core";
 
 /**
@@ -24,8 +23,8 @@ export const priorityEnum = pgEnum("priority", ["low", "medium", "high"]);
 
 export const tasks = createTable("task", {
   id: serial("id").primaryKey(),
-  title: varchar("title", { length: 256 }).notNull(),
-  completed: boolean("completed").default(false),
+  title: text("title").notNull(),
+  completed: boolean("completed").default(false).notNull(),
   priority: priorityEnum("priority").default(sql`'low'`),
   createdAt: timestamp("created_at", { withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)
