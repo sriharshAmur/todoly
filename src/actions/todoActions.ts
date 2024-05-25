@@ -8,6 +8,7 @@ import { revalidatePath } from "next/cache";
 export async function addTask(formData: FormData) {
   const taskData = {
     title: formData.get("title") as string,
+    priority: formData.get("priority") as "low" | "medium" | "high" | null,
   };
   await db.insert(tasks).values(taskData);
   revalidatePath("/");

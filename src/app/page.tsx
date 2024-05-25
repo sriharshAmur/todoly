@@ -15,7 +15,7 @@ export default async function HomePage() {
         <div className="flex items-center gap-4">
           <h1>TODOLY</h1>
         </div>
-        <div className="flex w-full flex-col  gap-8 md:w-1/2 md:min-w-96">
+        <div className="flex w-full flex-col  gap-8 md:w-2/3 md:min-w-96 lg:w-1/2">
           <AddTask />
 
           <div className="flex w-full flex-col gap-4">

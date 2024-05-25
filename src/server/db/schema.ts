@@ -25,7 +25,7 @@ export const tasks = createTable("task", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
   completed: boolean("completed").default(false).notNull(),
-  priority: priorityEnum("priority").default(sql`'low'`),
+  priority: priorityEnum("priority"),
   createdAt: timestamp("created_at", { withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
