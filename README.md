@@ -5,4 +5,5 @@
 - [ ] Filter Tasks by Status - completed/incompleted
 - [ ] Filter Tasks by Priority
 - [ ] Edit Task
-- [ ] Sort Tasks by Priority
+- [x] Sort Tasks by Priority
+- [ ] Error if title not provided

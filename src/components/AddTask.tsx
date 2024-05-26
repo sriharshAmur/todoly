@@ -40,11 +40,11 @@ const AddTask = () => {
               <Button
                 asChild
                 type="button"
-                size={"sm"}
+                size="icon"
                 onClick={() => setPriority("low")}
                 variant={priority === "low" ? "secondary" : "outline"}
               >
-                <Label htmlFor="low" className="border">
+                <Label className="cursor-pointer" htmlFor="low">
                   <Tally1 size={16} />
                 </Label>
               </Button>
@@ -54,11 +54,11 @@ const AddTask = () => {
               <Button
                 asChild
                 type="button"
-                size={"sm"}
+                size="icon"
                 onClick={() => setPriority("medium")}
                 variant={priority === "medium" ? "secondary" : "outline"}
               >
-                <Label htmlFor="medium">
+                <Label className="cursor-pointer" htmlFor="medium">
                   <Tally2 size={16} />
                 </Label>
               </Button>
@@ -69,10 +69,10 @@ const AddTask = () => {
                 asChild
                 type="button"
                 onClick={() => setPriority("high")}
-                size={"sm"}
+                size="icon"
                 variant={priority === "high" ? "secondary" : "outline"}
               >
-                <Label htmlFor="high">
+                <Label className="cursor-pointer" htmlFor="high">
                   <Tally3 size={16} />
                 </Label>
               </Button>

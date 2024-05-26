@@ -49,13 +49,18 @@ const Task = ({ task }: Props) => {
         <div>{task.title}</div>
       </div>
       <div className="flex items-center gap-2">
-        <Button variant={"secondary"}>
+        <Button size="icon" variant={"secondary"}>
           <Pencil size={ICON_SIZE} />
         </Button>
-        <Button variant={"destructive"} onClick={() => deleteTask(task.id)}>
+        <Button
+          size="icon"
+          variant={"destructive"}
+          onClick={() => deleteTask(task.id)}
+        >
           <Trash size={ICON_SIZE} />
         </Button>
         <Button
+          size="icon"
           onClick={() => toggleComplete(task.id)}
           className={cn("", {
             "bg-green-900 text-white hover:bg-green-600": task.completed,
