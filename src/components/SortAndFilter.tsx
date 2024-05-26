@@ -6,12 +6,12 @@ import { ArrowDownUp, ArrowDown01, ArrowUp01 } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const SortAndFilter = () => {
-  const { push } = useRouter();
+  const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const prioritySort = searchParams.get("prioritySort");
 
-  function handlePrioritySort() {
+  const handlePrioritySort = () => {
     const params = new URLSearchParams(searchParams);
     const prioritySort = params.get("prioritySort");
     switch (prioritySort) {
@@ -25,8 +25,8 @@ const SortAndFilter = () => {
         params.set("prioritySort", "asc");
         break;
     }
-    push(`${pathname}?${params.toString()}`);
-  }
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <div>
